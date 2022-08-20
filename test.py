@@ -12,8 +12,8 @@ parser.add_argument('-lr', '--init_lr', type=float, default=0.01, metavar='', he
 parser.add_argument('-fb', '--filterbase', type=int, default=64, metavar='', help='Number of filter base')
 parser.add_argument('-l', '--loss', type=str, default='mse', metavar='', help='Loss function')
 parser.add_argument('-sl', '--slice', type=int, default=32, metavar='', help='Sliceeeeee to get the plotting')
-parser.add_argument('-prep', '--path_rep', type=str, default="/clusterdata/uqvngu19/scratch/Objective3Datasets/Sample4Rep", metavar='', help='Path to get sample data')
-parser.add_argument('-pscaler', '--path_scaler', type=str, default="/clusterdata/uqvngu19/scratch/Objective3Datasets/Combined_train", metavar='', help='Path to get scalers')
+parser.add_argument('-prep', '--path_rep', type=str, default="Sample4Rep", metavar='', help='Path to get sample data')
+parser.add_argument('-pscaler', '--path_scaler', type=str, default="scalers", metavar='', help='Path to get scalers')
 
 
 args = parser.parse_args()
