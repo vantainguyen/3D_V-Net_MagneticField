@@ -144,3 +144,4 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     ga.set(ylabel=None)
     ga.set(xlim=(-10, 150))
     plt.subplots_adjust()
+    plt.show()
