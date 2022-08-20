@@ -13,15 +13,16 @@ parser.add_argument('-fb', '--filterbase', type=int, default=64, metavar='', hel
 parser.add_argument('-l', '--loss', type=str, default='mse', metavar='', help='Loss function')
 parser.add_argument('-sl', '--slice', type=int, default=32, metavar='', help='Sliceeeeee to get the plotting')
 parser.add_argument('-prep', '--path_rep', type=str, default="Sample4Rep", metavar='', help='Path to get sample data')
-parser.add_argument('-pscaler', '--path_scaler', type=str, default="scalers", metavar='', help='Path to get scalers')
+parser.add_argument('-pscaler', '--path_scaler', type=str, default=None, metavar='', help='Path to get scalers')
 
 
 args = parser.parse_args()
 
 
 # -------------------Loading scalers----------------------------------------------
-if os.getcwd() != args.path_scaler:
-    os.chdir(args.path_scaler)
+if args.path_scaler != None:
+    if os.getcwd() != args.path_scaler:
+        os.chdir(args.path_scaler)
 
 with open('scaler_axial', 'rb') as scaler_filename:
     scaler_axial = pickle.load(scaler_filename)
