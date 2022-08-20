@@ -21,6 +21,7 @@ args = parser.parse_args()
 
 # -------------------Loading scalers----------------------------------------------
 if args.path_scaler != None:
+
     if os.getcwd() != args.path_scaler:
         os.chdir(args.path_scaler)
 
@@ -43,6 +44,8 @@ def main():
 
     model = architecture1(filter_base=args.filterbase)
     model.compile(loss=args.loss, optimizer=optimizer1)
+    filepath = os.path.join(os.getcwd(),'saved_model_nograd/', 'V-Net-4') # 1 indicates dataset with 1
+    model.load_weights(filepath)
 
     os.chdir(args.path_rep)
 
