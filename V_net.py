@@ -104,11 +104,7 @@ def architecture1(filter_base=filter_base3, kernel_size=kernel_size1):
     upsample(filter_base*2, kernel_size), 
     upsample(filter_base, kernel_size),
 
-    # upsample(filter_base*32, kernel_size, apply_dropout=False), 
-    # upsample(filter_base*16, kernel_size, apply_dropout=False),
-    # upsample(filter_base*8, kernel_size, apply_dropout=False),
-    # upsample(filter_base*4, kernel_size), 
-    # upsample(filter_base*2, kernel_size),
+  
   ]
 
   initializer = tf.random_normal_initializer(0., 0.02)
@@ -144,9 +140,3 @@ def architecture1(filter_base=filter_base3, kernel_size=kernel_size1):
   
   return tf.keras.Model(inputs=inputs, outputs=x)
 
-# model1 = architecture1()
-# model1.compile(loss=loss_func, optimizer=optimizer1)
-#model1.summary()
-
-# model2 = architecture1()
-# model2.compile(loss=loss_func, optimizer=optimizer1)

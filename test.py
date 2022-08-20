@@ -31,8 +31,9 @@ with open('scaler_radial', 'rb') as scaler_filename:
     scaler_radial = pickle.load(scaler_filename)
 
 
+scaler = [scaler_axial, scaler_azimuthal, scaler_radial]
 
-
+# ------------------Main-----------------------------------------------------------
 def main():
 
     
@@ -57,26 +58,20 @@ def main():
 
     compo = args.component 
 
-    geometry = geometry_t.numpy()[:, :, :, compo] #sample[index].numpy()[:, :, :, compo]
+    geometry = geometry_t.numpy()[:, :, :, compo] 
 
-    axial_l = label.numpy()[:, :, :, compo] #label[index].numpy()[:, :, :, compo]
-    # azimuthal_l = label[index].numpy()[:, :, :, 1]
-    # radial_l = label[index].numpy()[:, :, :, 2]
+    compo_l = label.numpy()[:, :, :, compo] 
 
-    axial_p = pred_tt.numpy()[:, :, :, compo] #pred[index].numpy()[:, :, :, compo]
-    # azimuthal_p = pred[index].numpy()[:, :, :, 1]
-    # radial_p = pred[index].numpy()[:, :, :, 2]
+    compo_p = pred_tt.numpy()[:, :, :, compo] 
 
-    t_axial_l = scaler_axial.inverse_transform(axial_l.flatten().reshape((-1, 1)))
-    t_axial_p = scaler_axial.inverse_transform(axial_p.flatten().reshape((-1, 1)))
+    t_compo_l = scaler[compo].inverse_transform(compo_l.flatten().reshape((-1, 1)))
+    t_compo_p = scaler[compo].inverse_transform(compo_p.flatten().reshape((-1, 1)))
 
-    st_axial_l = t_axial_l.reshape((64, 64, 64))
-    st_axial_p = t_axial_p.reshape((64, 64, 64))
-
-    err = st_axial_l - st_axial_p
+    st_compo_l = t_compo_l.reshape((64, 64, 64))
+    st_compo_p = t_compo_p.reshape((64, 64, 64))
 
 
-    view_slices_3d(geometry, st_axial_l, st_axial_p, slice_=args.slice, title='')
+    view_slices_3d(geometry, st_compo_l, st_compo_p, slice_=args.slice, title='')
 
 if __name__ == '__main__':
 
