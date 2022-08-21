@@ -4,4 +4,4 @@
 In linux, the command can be like: 
 !wget https://osf.io/download/rg7fb; 
 !unzip rg7fb
-The folder contains the weights is saved_model_nograd should appear in the current working directory.
+The folder contains the weights is "saved_model_nograd" should appear in the current working directory.
