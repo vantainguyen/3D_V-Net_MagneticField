@@ -10,6 +10,10 @@ import numpy as np
 
 def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
+    """
+    Plotting functions to compare the ground truth and prediction
+    """
+
     fig = plt.figure(figsize=(11, 11))
     plt.suptitle(title, fontsize=14)
 

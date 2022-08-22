@@ -5,6 +5,11 @@ OUTPUT_CHANNELS = 3
 
 
 def downsample(filters, kernel_size, apply_batchnorm=True, pooling=False):
+
+  """
+  Downsampling images
+  """
+
   initializer = tf.random_normal_initializer(0., 0.02)
 
   result = tf.keras.Sequential()
@@ -23,6 +28,11 @@ def downsample(filters, kernel_size, apply_batchnorm=True, pooling=False):
   return result
 
 def upsample(filters, kernel_size, apply_dropout=False, apply_batchnorm=True):
+
+  """
+  Upsampling images
+  """
+
   initializer = tf.random_normal_initializer(0., 0.02)
 
   result = tf.keras.Sequential()
@@ -87,6 +97,10 @@ save_period = epochs_train
 
 
 def architecture1(filter_base=filter_base3, kernel_size=kernel_size1):
+
+  """
+  Completing V-Net architecture
+  """
   down_stack = [
     downsample(filter_base, kernel_size), 
     downsample(filter_base*2, kernel_size),

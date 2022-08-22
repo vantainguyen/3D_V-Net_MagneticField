@@ -38,6 +38,10 @@ scaler = [scaler_axial, scaler_azimuthal, scaler_radial]
 # ------------------Main-----------------------------------------------------------
 def main():
 
+    """
+    Notes: set --component to 0, 1, 2 to compare the axial, azimuthal and radial components
+    """
+
     optimizer1 = tf.keras.optimizers.Adam(learning_rate=args.init_lr)
     
     model = architecture1(filter_base=args.filterbase)
