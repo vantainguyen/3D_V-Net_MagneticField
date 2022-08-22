@@ -11,3 +11,10 @@ unzip rg7fb
 ```
 
 The folder contains the weights is "saved_model_nograd" should appear in the current working directory.
+
+**Create new environment and install dependencies using Conda**
+
+```bash
+conda env create -f environment.yml
+conda activate Obj3D
+```
