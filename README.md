@@ -18,3 +18,8 @@ The folder contains the weights is "saved_model_nograd" should appear in the cur
 conda env create -f environment.yml
 conda activate Obj3D
 ```
+
+- Reproduce results
+```bash
+python test.py --component=1 # --component = 0, 1, 2 for axial, azimuthal and radial field components
+```
