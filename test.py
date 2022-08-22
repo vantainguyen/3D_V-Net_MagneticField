@@ -5,7 +5,7 @@ import os
 import argparse
 from utils import view_slices_3d
 
-
+# -----------------Define arguments----------------------------------------------
 parser = argparse.ArgumentParser(description='Reproducible results')
 parser.add_argument('-co', '--component', type=int, default=0, metavar='', help='Field component to plot: 0 - Axial; 1 - Azimuthal; 2 - Radial')
 parser.add_argument('-lr', '--init_lr', type=float, default=0.01, metavar='', help='Initial learning rate')
@@ -38,12 +38,11 @@ scaler = [scaler_axial, scaler_azimuthal, scaler_radial]
 # ------------------Main-----------------------------------------------------------
 def main():
 
-    
     optimizer1 = tf.keras.optimizers.Adam(learning_rate=args.init_lr)
     
-
     model = architecture1(filter_base=args.filterbase)
     model.compile(loss=args.loss, optimizer=optimizer1)
+
     filepath = os.path.join(os.getcwd(),'saved_model_nograd/', 'V-Net-4') # 1 indicates dataset with 1
     model.load_weights(filepath)
 
