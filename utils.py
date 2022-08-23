@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import StrMethodFormatter
 from scipy import ndimage
 import seaborn as sns
 import numpy as np
@@ -120,6 +121,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplot(5,3,13)
     ga = sns.distplot(errors, kde=True, hist=False, rug=False, kde_kws={"shade": True, "bw_adjust": 1, "cut":0, "bw_method": 'silverman'}, color='b')
+    plt.gca().yaxis.set_major_formatter(StrMethodFormatter('{x: .2f}')) # set yaxis to 2 decimal places
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
     ga.set(xlim=(-10, 150))
@@ -132,6 +134,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplot(5,3,14)
     ga = sns.distplot(errors, kde=True, hist=False, rug=False, kde_kws={"shade": True, "bw_adjust": 1, "cut":0, "bw_method": 'silverman'}, color='b')
+    plt.gca().yaxis.set_major_formatter(StrMethodFormatter('{x: .2f}')) # set yaxis to 2 decimal places
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
     ga.set(ylabel=None)
@@ -144,10 +147,11 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplot(5,3,15)
     ga = sns.distplot(errors, kde=True, hist=False, rug=False, kde_kws={"shade": True, "bw_adjust": 1, "cut":0, "bw_method": 'silverman'}, color='b')
+    plt.gca().yaxis.set_major_formatter(StrMethodFormatter('{x: .2f}')) # set yaxis to 2 decimal places
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=12)
-    
     ga.set(ylabel=None)
     ga.set(xlim=(-10, 150))
+
     plt.subplots_adjust()
     plt.show()
