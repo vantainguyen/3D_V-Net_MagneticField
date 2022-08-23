@@ -44,7 +44,9 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     # --------------Plotting the ground truth field---------------------------------
     plt.subplot(534)
-    ga = sns.heatmap(np.take(st_axial_l, slice_, 2), cmap='YlGnBu', fmt='g')
+    vmax = np.max(np.take(st_axial_l, slice_, 2))
+    vmin = np.min(np.take(st_axial_l, slice_, 2))
+    ga = sns.heatmap(np.take(st_axial_l, slice_, 2), vmax=vmax, vmin=vmin, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
@@ -66,7 +68,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     # -------------Plotting predicted field--------------------------------------------
     plt.subplot(537)
-    ga = sns.heatmap(np.take(st_axial_p, slice_, 2), cmap='YlGnBu')
+    ga = sns.heatmap(np.take(st_axial_p, slice_, 2),vmax=vmax, vmin=vmin, cmap='YlGnBu')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
