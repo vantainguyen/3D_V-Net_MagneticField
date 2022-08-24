@@ -1,4 +1,4 @@
-name: tryObj3D
+name: Obj3D
 channels:
   - defaults
 dependencies:
