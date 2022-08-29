@@ -1,0 +1,2 @@
+###### Requirements with Version Specifiers ######
+psycopg2 == 2.9.3
