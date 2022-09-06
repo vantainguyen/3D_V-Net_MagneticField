@@ -8,8 +8,8 @@
 
 **In linux**
 ```bash
-wget https://osf.io/download/qshvw
-unzip qshvw
+!wget https://osf.io/download/qshvw
+!unzip qshvw
 ```
 
 The folder contains the weights and "saved_model_nograd" should appear in the current working directory.
