@@ -15,7 +15,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     Plotting functions to compare the ground truth and prediction
     """
 
-    fig = plt.figure(figsize=(11, 11))
+    fig = plt.figure(figsize=(12, 17))
     plt.suptitle(title, fontsize=14)
 
     # --------------Plotting geometrical sections-----------------------------------
@@ -45,9 +45,9 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     # --------------Plotting the ground truth field---------------------------------
     plt.subplot(534)
-    vmax = np.max(np.take(st_axial_l, slice_, 2))
-    vmin = np.min(np.take(st_axial_l, slice_, 2))
-    ga = sns.heatmap(np.take(st_axial_l, slice_, 2), vmax=vmax, vmin=vmin, cmap='YlGnBu', fmt='g')
+    vmaxa = np.max(np.take(st_axial_l, slice_, 2))
+    vmina = np.min(np.take(st_axial_l, slice_, 2))
+    ga = sns.heatmap(np.take(st_axial_l, slice_, 2), vmax=vmaxa, vmin=vmina, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
@@ -55,21 +55,25 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplot(535)
     image_rot = ndimage.rotate(np.take(st_axial_l, slice_, 1),90)
-    ga = sns.heatmap(image_rot, cmap='YlGnBu')
+    vmaxc = np.max(image_rot)
+    vminc = np.min(image_rot)
+    ga = sns.heatmap(image_rot, vmax=vmaxc, vmin=vminc, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
 
     plt.subplot(536)
     image_rot = ndimage.rotate(np.take(st_axial_l, slice_, 0),90)
-    ga = sns.heatmap(image_rot, cmap='YlGnBu')
+    vmaxs = np.max(image_rot)
+    vmins = np.min(image_rot)
+    ga = sns.heatmap(image_rot, vmax=vmaxs, vmin=vmins, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
 
     # -------------Plotting predicted field--------------------------------------------
     plt.subplot(537)
-    ga = sns.heatmap(np.take(st_axial_p, slice_, 2),vmax=vmax, vmin=vmin, cmap='YlGnBu')
+    ga = sns.heatmap(np.take(st_axial_p, slice_, 2),vmax=vmaxa, vmin=vmina, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
@@ -77,14 +81,14 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplot(538)
     image_rot = ndimage.rotate(np.take(st_axial_p, slice_, 1),90)
-    ga = sns.heatmap(image_rot, cmap='YlGnBu')
+    ga = sns.heatmap(image_rot, vmax=vmaxc, vmin=vminc, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
 
     plt.subplot(539)
     image_rot = ndimage.rotate(np.take(st_axial_p, slice_, 0),90)
-    ga = sns.heatmap(image_rot, cmap='YlGnBu')
+    ga = sns.heatmap(image_rot, vmax=vmaxs, vmin=vmins, cmap='YlGnBu', fmt='g')
     ga.set(xticklabels=[])
     ga.set(yticklabels=[])
     ga.tick_params(bottom=False, left=False)
