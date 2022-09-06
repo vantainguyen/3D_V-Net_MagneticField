@@ -25,4 +25,4 @@ conda activate Obj3D
 ```bash
 python test.py --component=1 # --component = 0, 1, 2 for axial, azimuthal and radial field components
 ```
-<img src="images/Azimuthal.png">
+<img src="images/Axial_component.png">
