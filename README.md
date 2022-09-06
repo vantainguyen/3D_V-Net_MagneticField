@@ -8,7 +8,7 @@
 
 **In linux**
 ```bash
-wget https://osf.io/download/rg7fb
+wget https://osf.io/download/qshvw
 unzip rg7fb
 ```
 
