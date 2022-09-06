@@ -4,7 +4,7 @@
 
 ## The following steps can be applied to reproduce the results of this research.
 
-- Download and extract the weights of the deep learning model from https://osf.io/download/rg7fb:
+- Download and extract the weights of the deep learning model from https://osf.io/download/qshvw:
 
 **In linux**
 ```bash
