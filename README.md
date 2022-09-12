@@ -29,7 +29,7 @@ python sample_plot.py
 ```
 <img src="images/sample_plot.png">
 
-**Result validation**
+**Validation of the predicted and ground truth field**
 ```bash
 python test.py --component=0 # --component = 0, 1, 2 for axial, azimuthal and radial field components
 ```
