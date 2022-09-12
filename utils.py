@@ -166,8 +166,8 @@ def sample_plot(sample_train, label_train):
   """
   Plotting 2D sections of samples of geometry and magnetic field
   """
-  
-  fig = plt.figure(figsize=(12, 17))
+
+  fig = plt.figure(figsize=(10, 7))
   fig.patch.set_facecolor("white")
 
   index_ = [1, 2, 3]
