@@ -217,4 +217,4 @@ def sample_plot(sample_train, label_train):
     g.tick_params(bottom=None, left=None)
     plt.title('Ra')
     plt.tight_layout()
-    plt.show()
+  plt.show()

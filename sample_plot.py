@@ -1,5 +1,3 @@
-import seaborn as sns
-import matplotlib.pyplot as plt
 from utils import sample_plot
 import os
 import pickle
