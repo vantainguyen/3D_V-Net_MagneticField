@@ -16,6 +16,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     """
 
     fig = plt.figure(figsize=(12, 17))
+    fig.patch.set_facecolor("white")
     plt.suptitle(title, fontsize=14)
 
     # --------------Plotting geometrical sections-----------------------------------
@@ -159,8 +160,6 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplots_adjust()
     plt.show()
-
-
 
 def sample_plot(sample_train, label_train):
 

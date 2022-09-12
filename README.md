@@ -4,12 +4,12 @@
 
 ## The following steps can be applied to reproduce the results of this research.
 
-- Download and extract the weights of the deep learning model from https://osf.io/download/rg7fb:
+- Download and extract the weights of the deep learning model from https://osf.io/download/qshvw:
 
 **In linux**
 ```bash
-wget https://osf.io/download/rg7fb
-unzip rg7fb
+!wget https://osf.io/download/qshvw
+!unzip qshvw
 ```
 
 The folder contains the weights and "saved_model_nograd" should appear in the current working directory.
@@ -23,10 +23,7 @@ conda activate Obj3D
 
 - Reproduce results
 ```bash
-python test.py --component=1 # --component = 0, 1, 2 for axial, azimuthal and radial field components
+python test.py --component=0 # --component = 0, 1, 2 for axial, azimuthal and radial field components
 ```
-<style>
-<body style = 'background-color:#FFFFFF'>
-<body>
-<img src="images/Axial_component.png" style="background-color:#33475b">
-<style>
+<img src="images/Axial_component.png">
+
