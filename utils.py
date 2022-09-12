@@ -159,3 +159,62 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
 
     plt.subplots_adjust()
     plt.show()
+
+
+
+def sample_plot(sample_train, label_train):
+
+  """
+  Plotting 2D sections of samples of geometry and magnetic field
+  """
+
+  index_ = [1, 2, 3]
+  slice_ = 32
+  slot = 0
+
+  Geometry = ['Cone with EC (T)', 'Cone with SC (T)', 'Cone (T)']
+
+  for index in index_:
+
+    index = index - 1
+
+    slot += 1
+    plt.subplot(3, 4, slot)
+    vmin = -1.5 #np.min(sample_train[index][:, slice_, :, 0])
+    vmax = 1.5 #np.max(sample_train[index][:, slice_, :, 0])
+    g = sns.heatmap(sample_train[index][:, slice_, :, 0], cmap='YlGnBu', vmin=vmin, vmax=vmax) 
+    g.set(xticklabels=[])
+    g.set(yticklabels=[])
+    g.tick_params(bottom=None, left=None)
+    plt.title(Geometry[index])
+
+    slot += 1
+    plt.subplot(3, 4, slot)
+    vmin = np.min(label_train[index][:, slice_, :, 0])
+    vmax = np.max(label_train[index][:, slice_, :, 0])
+    g = sns.heatmap(label_train[index][:, slice_, :, 0], cmap='YlGnBu', vmin=vmin, vmax=vmax)  
+    g.set(xticklabels=[])
+    g.set(yticklabels=[])
+    g.tick_params(bottom=None, left=None)
+    plt.title('Ax')
+
+    slot += 1
+    plt.subplot(3, 4, slot)
+    vmin = np.min(label_train[index][:, slice_, :, 1])
+    vmax = np.max(label_train[index][:, slice_, :, 1])
+    g = sns.heatmap(label_train[index][:, slice_, :, 1], cmap='YlGnBu', vmin=vmin, vmax=vmax)
+    g.set(xticklabels=[])
+    g.set(yticklabels=[])
+    g.tick_params(bottom=None, left=None)
+    plt.title('Az')
+
+    slot += 1
+    plt.subplot(3, 4, slot)
+    vmin = np.min(label_train[index][:, slice_, :, 2])
+    vmax = np.max(label_train[index][:, slice_, :, 2])
+    g = sns.heatmap(label_train[index][:, slice_, :, 2], cmap='YlGnBu', vmin=vmin, vmax=vmax)
+    g.set(xticklabels=[])
+    g.set(yticklabels=[])
+    g.tick_params(bottom=None, left=None)
+    plt.title('Ra')
+    plt.tight_layout()
