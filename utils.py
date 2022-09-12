@@ -182,13 +182,13 @@ def sample_plot(sample_train, label_train):
 
     slot += 1
     plt.subplot(3, 4, slot)
-    vmin = -1.5 #np.min(sample_train[index][:, slice_, :, 0])
-    vmax = 1.5 #np.max(sample_train[index][:, slice_, :, 0])
+    vmin = np.min(sample_train[index][:, slice_, :, 0])
+    vmax = np.max(sample_train[index][:, slice_, :, 0])
     g = sns.heatmap(sample_train[index][:, slice_, :, 0], cmap='YlGnBu', vmin=vmin, vmax=vmax) 
     g.set(xticklabels=[])
     g.set(yticklabels=[])
     g.tick_params(bottom=None, left=None)
-    plt.title(Geometry[index])
+    plt.title(Geometry[index], fontsize=12)
 
     slot += 1
     plt.subplot(3, 4, slot)
@@ -198,7 +198,7 @@ def sample_plot(sample_train, label_train):
     g.set(xticklabels=[])
     g.set(yticklabels=[])
     g.tick_params(bottom=None, left=None)
-    plt.title('Ax')
+    plt.title('Ax', fontsize=12)
 
     slot += 1
     plt.subplot(3, 4, slot)
@@ -208,7 +208,7 @@ def sample_plot(sample_train, label_train):
     g.set(xticklabels=[])
     g.set(yticklabels=[])
     g.tick_params(bottom=None, left=None)
-    plt.title('Az')
+    plt.title('Az', fontsize=12)
 
     slot += 1
     plt.subplot(3, 4, slot)
@@ -218,6 +218,6 @@ def sample_plot(sample_train, label_train):
     g.set(xticklabels=[])
     g.set(yticklabels=[])
     g.tick_params(bottom=None, left=None)
-    plt.title('Ra')
+    plt.title('Ra', fontsize=12)
     plt.tight_layout()
   plt.show()
