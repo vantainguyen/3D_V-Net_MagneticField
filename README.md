@@ -27,6 +27,7 @@ conda activate Obj3D
 ```bash
 python sample_plot.py
 ```
+<img src="images/sample_plot.png">
 
 **Result validation**
 ```bash
