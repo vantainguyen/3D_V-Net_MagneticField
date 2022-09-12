@@ -22,6 +22,11 @@ conda activate Obj3D
 ```
 
 - Reproduce results
+**Samples of generated data**
+```bash
+python sample_plot.py
+```
+**Result validation**
 ```bash
 python test.py --component=0 # --component = 0, 1, 2 for axial, azimuthal and radial field components
 ```
