@@ -119,8 +119,8 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     ga.tick_params(bottom=False, left=False)
     
     # -----------Plotting distribution of normalised error ------------------------------
-    interq_991 = np.subtract(*np.percentile(np.take(err, slice_, 2).flatten(), [99, 1]))
-    errors = abs(np.take(err, slice_, 2).flatten())*100/interq_991
+    interq_955 = np.subtract(*np.percentile(np.take(st_axial_l, slice_, 2).flatten(), [95, 5])) #originally replace err with st_axial_l
+    errors = abs(np.take(err, slice_, 2).flatten())*100/interq_955
     mean = np.mean(errors)
     std = np.std(errors)
 
@@ -129,11 +129,11 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     plt.gca().yaxis.set_major_formatter(StrMethodFormatter('{x: .2f}')) # set yaxis to 2 decimal places
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
-    ga.set(xlim=(-10, 150))
+    ga.set(xlim=(0, 10))
     plt.ylabel('Density', fontsize=12)
 
-    interq_991 = np.subtract(*np.percentile(ndimage.rotate(np.take(err, slice_, 1),90).flatten(), [99, 1]))
-    errors = abs(ndimage.rotate(np.take(err, slice_, 1),90))*100/interq_991
+    interq_955 = np.subtract(*np.percentile(ndimage.rotate(np.take(st_axial_l, slice_, 1),90).flatten(), [95, 55]))
+    errors = abs(ndimage.rotate(np.take(err, slice_, 1),90))*100/interq_955
     mean = np.mean(errors)
     std = np.std(errors)
 
@@ -143,10 +143,10 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
     ga.set(ylabel=None)
-    ga.set(xlim=(-10, 150))
+    ga.set(xlim=(0, 20))
 
-    interq_991 = np.subtract(*np.percentile(ndimage.rotate(np.take(err, slice_, 0),90).flatten(), [99, 1]))
-    errors = abs(ndimage.rotate(np.take(err, slice_, 0),90))*100/interq_991
+    interq_955 = np.subtract(*np.percentile(ndimage.rotate(np.take(st_axial_l, slice_, 0),90).flatten(), [95, 5]))
+    errors = abs(ndimage.rotate(np.take(err, slice_, 0),90))*100/interq_955
     mean = np.mean(errors)
     std = np.std(errors)
 
@@ -156,7 +156,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=12)
     ga.set(ylabel=None)
-    ga.set(xlim=(-10, 150))
+    ga.set(xlim=(0, 40))
 
     plt.subplots_adjust()
     plt.show()
