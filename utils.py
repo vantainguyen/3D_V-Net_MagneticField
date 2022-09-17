@@ -144,7 +144,7 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, compo, title=''):
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
     ga.set(ylabel=None)
     if compo == 2:
-        ga.set(xlim=(0, 40))
+        ga.set(xlim=(0, 20))
     else:
         ga.set(xlim=(0, 10))
 
