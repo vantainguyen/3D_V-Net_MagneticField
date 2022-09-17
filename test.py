@@ -78,7 +78,7 @@ def main():
     st_compo_p = t_compo_p.reshape((64, 64, 64))
 
 
-    view_slices_3d(geometry, st_compo_l, st_compo_p, slice_=args.slice, title='')
+    view_slices_3d(geometry, st_compo_l, st_compo_p, slice_=args.slice, compo=compo, title='')
 
 if __name__ == '__main__':
 

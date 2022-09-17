@@ -9,7 +9,7 @@ import numpy as np
 
 # ------------------Visualizing function------------------------------------------
 
-def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
+def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, compo, title=''):
 
     """
     Plotting functions to compare the ground truth and prediction
@@ -143,7 +143,10 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=8)
     ga.set(ylabel=None)
-    ga.set(xlim=(0, 20))
+    if compo == 2:
+        ga.set(xlim=(0, 40))
+    else:
+        ga.set(xlim=(0, 10))
 
     interq_955 = np.subtract(*np.percentile(ndimage.rotate(np.take(st_axial_l, slice_, 0),90).flatten(), [95, 5]))
     errors = abs(ndimage.rotate(np.take(err, slice_, 0),90))*100/interq_955
@@ -156,7 +159,10 @@ def view_slices_3d(geometry, st_axial_l, st_axial_p, slice_, title=''):
     plt.xlabel('Error (%)', fontsize=12)
     plt.legend(title='\u03BC = {:2.2}, \u03C3 = {:0.3}'.format(mean, std), fontsize=12)
     ga.set(ylabel=None)
-    ga.set(xlim=(0, 40))
+    if compo == 2:
+        ga.set(xlim=(0, 40))
+    else:
+        ga.set(xlim=(0, 10))
 
     plt.subplots_adjust()
     plt.show()
