@@ -177,7 +177,7 @@ def sample_plot(sample_train, label_train):
   fig.patch.set_facecolor("white")
 
   index_ = [1, 2, 3]
-  slice_ = 32
+  slice_ = 31
   slot = 0
 
   Geometry = ['Cone with EC (T)', 'Cone with SC (T)', 'Cone (T)']
