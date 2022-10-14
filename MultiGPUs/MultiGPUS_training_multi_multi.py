@@ -102,7 +102,7 @@ else:
   loss_func = 'mean_squared_error'
 
 
-# Synchronous distributed training on multiple GPUs on one machine with data parallelism strategy.
+# Synchronous distributed training on multiple GPUs on multiple machines with data parallelism strategy.
 mmir_strategy = tf.distribute.MultiWorkerMirroredStrategy()
 
 with mmir_strategy.scope():
