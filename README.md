@@ -1,6 +1,6 @@
 # Deep learning for modelling three dimensional magnetic static field
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<!---[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)--->
 
 In this work, we use the 3D U-Net (V-Net) to learn the three dimensional magnetic field generated from permanent magnets.
 
